@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+	"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<!-- 회원Dao의 Namespace 변수 확인 요망 -->
+<mapper namespace="myproject.member.model">
+
+	<select id="SelectDataByPk" resultType="MyMember">
+		select * from members 
+		where id = #{id}
+	</select>
+	
+	<insert id="InsertData" parameterType="MyMember">
+		insert into members(id, email, password) 
+		values( #{id}, #{email}, #{password})
+	</insert>	
+
+</mapper>
