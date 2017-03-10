@@ -32,14 +32,13 @@
 	
 
 	<h1>
-		<a href="">Python</a>
+		<a>Programming 씹어먹기</a>
 	</h1>
-
-	<h2>A Full-Screen Menu, showcasing your brand and website
+<br>
+	<h3>A Full-Screen Menu, showcasing your brand and website
 		navigation.</h2>
 
-	<p class="support">With support for IE10 & latest versions of
-		Chrome, Safari, and Firefox.</p>
+	<p class="support"> <i class="glyphicon glyphicon-envelope"> bughunt88@gmail.com</i></p>
 
 	</main>
 

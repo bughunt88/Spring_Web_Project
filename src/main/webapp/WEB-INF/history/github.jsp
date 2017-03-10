@@ -26,6 +26,14 @@
 			background: #9D9E94;
 			padding: 25px;
 		}
+			.tt{
+			position: relative;
+			left: 30px;
+			padding-right: 10px;
+		}
+		.yy{
+			color: #9D9E94;
+		}
 		
 		</style>
 		
@@ -38,7 +46,8 @@
 <div class="container">
 			<header class="clearfix">
 				<span>History</span>
-				<h1><a class="mm" href="<%=contextPath%>/history/python"><i class="glyphicon glyphicon-chevron-left">&nbsp;</i></a><i class="icon-java-bold" aria-hidden="true"> GitHub  </i> &nbsp; <a class="mm1" href="<%=contextPath%>/history/java"><i class="glyphicon glyphicon-chevron-right"></i></a></h1>
+				<h1><a class="mm" href="<%=contextPath%>/history/python"><i class="glyphicon glyphicon-chevron-left">&nbsp;</i></a><i class="fa fa-github" aria-hidden="true"> GitHub  </i> &nbsp; <a class="mm1" href="<%=contextPath%>/history/java"><i class="glyphicon glyphicon-chevron-right"></i></a></h1>
+				<h1 class="tt"><a class="yy" href="https://github.com/bughunt88" target="_blank"><i class="fa fa-github" aria-hidden="true"></i></a></h1>
 			</header>
 			
 			<div id="grid-gallery" class="grid-gallery">
@@ -48,14 +57,14 @@
 						
 						<li>
 							<figure>
-								<img src="${pageContext.request.contextPath}/img/java2.jpg" alt="img01"/>
-								<figcaption><h3>Letterpress asymmetrical</h3><p>Chillwave hoodie ea gentrify aute sriracha consequat.</p></figcaption>
+								<img src="${pageContext.request.contextPath}/img/git.jpg" alt="img01"/>
+								<figcaption><h3>GitHub 먹자 !</h3><p>Chillwave hoodie ea gentrify aute sriracha consequat.</p></figcaption>
 							</figure>
 						</li>
 						<li>
 							<figure>
-								<img src="${pageContext.request.contextPath}/img/board_java.png" alt="img02"/>
-								<figcaption><h3>Letterpress asymmetrical</h3><p>Chillwave hoodie ea gentrify aute sriracha consequat.</p></figcaption>
+								<img src="${pageContext.request.contextPath}/img/git3.png" alt="img02"/>
+								<figcaption><h3>Review</h3><p>곱씹어보자 !!!</p></figcaption>
 							</figure>
 						</li>
 						
@@ -68,20 +77,20 @@
 						<li>
 							<figure>
 								<figcaption class="momo">
-									<h3>Letterpress asymmetrical</h3>
+									<h3>GitHub 먹자 !</h3>
 									<p>Kale chips lomo biodiesel stumptown Godard Tumblr, mustache sriracha tattooed cray aute slow-carb placeat delectus. Letterpress asymmetrical fanny pack art party est pour-over skateboard anim quis, ullamco craft beer.</p>
 								</figcaption>
-								<img src="${pageContext.request.contextPath}/img/java2.jpg" alt="img01"/>
+								<img src="${pageContext.request.contextPath}/img/git1.jpg" alt="img01"/>
 							</figure>
 						</li>
 					
 						<li>
 							<figure>
 								<figcaption class="momo">
-									<h3>Letterpress asymmetrical</h3>
+									<h3>Review</h3>
 									<p>Kale chips lomo biodiesel stumptown Godard Tumblr, mustache sriracha tattooed cray aute slow-carb placeat delectus. Letterpress asymmetrical fanny pack art party est pour-over skateboard anim quis, ullamco craft beer.</p>
 								</figcaption>
-								<img src="${pageContext.request.contextPath}/img/board_java.png" alt="img02"/>
+								<img src="${pageContext.request.contextPath}/img/git3.png" alt="img02"/>
 							</figure>
 						</li>
 				

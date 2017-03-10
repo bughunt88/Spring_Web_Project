@@ -25,6 +25,14 @@
 			background: #ff8040;
 			padding: 25px;
 		}	
+			.tt{
+			position: relative;
+			left: 30px;
+			padding-right: 10px;
+		}
+		.yy{
+			color: #ff8040;
+		}
 		
 		</style>
 		
@@ -37,7 +45,8 @@
 <div class="container">
 			<header class="clearfix">
 				<span>History</span>
-				<h1><a class="dd" href="<%=contextPath%>/history/spring"><i class="glyphicon glyphicon-chevron-left">&nbsp;</i></a><i class="icon-java-bold" aria-hidden="true"> Python  </i> &nbsp; <a class="dd1" href="<%=contextPath%>/history/github"><i class="glyphicon glyphicon-chevron-right"></i></a></h1>
+				<h1><a class="dd" href="<%=contextPath%>/history/spring"><i class="glyphicon glyphicon-chevron-left">&nbsp;</i></a><i class="icon-python" aria-hidden="true"> Python  </i> &nbsp; <a class="dd1" href="<%=contextPath%>/history/github"><i class="glyphicon glyphicon-chevron-right"></i></a></h1>
+				<h1 class="tt"><a class="yy" href="https://github.com/bughunt88/python_project" target="_blank"><i class="fa fa-github" aria-hidden="true"></i></a></h1>
 			</header>
 			
 			<div id="grid-gallery" class="grid-gallery">
@@ -47,14 +56,38 @@
 						
 						<li>
 							<figure>
-								<img src="${pageContext.request.contextPath}/img/java2.jpg" alt="img01"/>
-								<figcaption><h3>Letterpress asymmetrical</h3><p>Chillwave hoodie ea gentrify aute sriracha consequat.</p></figcaption>
+								<img src="${pageContext.request.contextPath}/img/pyt.png" alt="img01"/>
+								<figcaption><h3>Python 먹자 !</h3><p>Chillwave hoodie ea gentrify aute sriracha consequat.</p></figcaption>
 							</figure>
 						</li>
 						<li>
 							<figure>
-								<img src="${pageContext.request.contextPath}/img/board_java.png" alt="img02"/>
-								<figcaption><h3>Letterpress asymmetrical</h3><p>Chillwave hoodie ea gentrify aute sriracha consequat.</p></figcaption>
+								<img src="${pageContext.request.contextPath}/img/dj.png" alt="img02"/>
+								<figcaption><h3>Django 먹자 !</h3><p>Chillwave hoodie ea gentrify aute sriracha consequat.</p></figcaption>
+							</figure>
+						</li>
+						<li>
+							<figure>
+								<img src="${pageContext.request.contextPath}/img/dj2.png" alt="img02"/>
+								<figcaption><h3>Main Page</h3><p>Chillwave hoodie ea gentrify aute sriracha consequat.</p></figcaption>
+							</figure>
+						</li>
+						<li>
+							<figure>
+								<img src="${pageContext.request.contextPath}/img/dj3.png" alt="img02"/>
+								<figcaption><h3>Select Page</h3><p>Chillwave hoodie ea gentrify aute sriracha consequat.</p></figcaption>
+							</figure>
+						</li>
+						<li>
+							<figure>
+								<img src="${pageContext.request.contextPath}/img/dj4.png" alt="img02"/>
+								<figcaption><h3>Result Page</h3><p>Chillwave hoodie ea gentrify aute sriracha consequat.</p></figcaption>
+							</figure>
+						</li>
+						<li>
+							<figure>
+								<img src="${pageContext.request.contextPath}/img/history_java5.png" alt="img02"/>
+								<figcaption><h3>&nbsp&nbsp&nbsp&nbsp&nbsp Review</h3><p>곱씹어보자 !!!</p></figcaption>
 							</figure>
 						</li>
 						
@@ -67,22 +100,59 @@
 						<li>
 							<figure>
 								<figcaption class="momo">
-									<h3>Letterpress asymmetrical</h3>
+									<h3>Python 먹자 !</h3>
 									<p>Kale chips lomo biodiesel stumptown Godard Tumblr, mustache sriracha tattooed cray aute slow-carb placeat delectus. Letterpress asymmetrical fanny pack art party est pour-over skateboard anim quis, ullamco craft beer.</p>
 								</figcaption>
-								<img src="${pageContext.request.contextPath}/img/java2.jpg" alt="img01"/>
+								<img src="${pageContext.request.contextPath}/img/python.png" alt="img01"/>
 							</figure>
 						</li>
 					
 						<li>
 							<figure>
 								<figcaption class="momo">
-									<h3>Letterpress asymmetrical</h3>
+									<h3>Django 먹자 !</h3>
 									<p>Kale chips lomo biodiesel stumptown Godard Tumblr, mustache sriracha tattooed cray aute slow-carb placeat delectus. Letterpress asymmetrical fanny pack art party est pour-over skateboard anim quis, ullamco craft beer.</p>
 								</figcaption>
-								<img src="${pageContext.request.contextPath}/img/board_java.png" alt="img02"/>
+								<img src="${pageContext.request.contextPath}/img/dj1.png" alt="img02"/>
 							</figure>
 						</li>
+						<li>
+							<figure>
+								<figcaption class="momo">
+									<h3>Main Page</h3>
+									<p>Kale chips lomo biodiesel stumptown Godard Tumblr, mustache sriracha tattooed cray aute slow-carb placeat delectus. Letterpress asymmetrical fanny pack art party est pour-over skateboard anim quis, ullamco craft beer.</p>
+								</figcaption>
+								<img src="${pageContext.request.contextPath}/img/dj2.png" alt="img02"/>
+							</figure>
+						</li>
+						<li>
+							<figure>
+								<figcaption class="momo">
+									<h3>Select Page</h3>
+									<p>Kale chips lomo biodiesel stumptown Godard Tumblr, mustache sriracha tattooed cray aute slow-carb placeat delectus. Letterpress asymmetrical fanny pack art party est pour-over skateboard anim quis, ullamco craft beer.</p>
+								</figcaption>
+								<img src="${pageContext.request.contextPath}/img/dj3.png" alt="img02"/>
+							</figure>
+						</li>
+						<li>
+							<figure>
+								<figcaption class="momo">
+									<h3>Result Page</h3>
+									<p>Kale chips lomo biodiesel stumptown Godard Tumblr, mustache sriracha tattooed cray aute slow-carb placeat delectus. Letterpress asymmetrical fanny pack art party est pour-over skateboard anim quis, ullamco craft beer.</p>
+								</figcaption>
+								<img src="${pageContext.request.contextPath}/img/dj4.png" alt="img02"/>
+							</figure>
+						</li>
+						<li>
+							<figure>
+								<figcaption class="momo">
+									<h3>Review</h3>
+									<p>Kale chips lomo biodiesel stumptown Godard Tumblr, mustache sriracha tattooed cray aute slow-carb placeat delectus. Letterpress asymmetrical fanny pack art party est pour-over skateboard anim quis, ullamco craft beer.</p>
+								</figcaption>
+								<img src="${pageContext.request.contextPath}/img/history_java6.png" alt="img02"/>
+							</figure>
+						</li>
+						
 				
 					</ul>
 					<nav>

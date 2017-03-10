@@ -1,0 +1,162 @@
+/*글쓰기 부분 CSS--------------------------------------------------------*/
+@import url(http://fonts.googleapis.com/earlyaccess/hanna.css);
+
+html {
+  position: relative;
+  min-height: 100%;
+}
+body {
+   margin-top: 5%;
+  margin-bottom: 10%;
+   background-color: rgb(255, 255, 255);
+  font-size: 16px;
+
+  font-family:'Hanna';
+
+}
+
+#footer {
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+  /* Set the fixed height of the footer here */
+  height: 60px;
+  background-color: #f5f5f5;
+  background: black;
+  color:white;
+}
+.contact-form {
+  margin-top: 15px;
+}
+
+.contact-form .textarea {
+  min-height: 220px;
+  resize: none;
+}
+
+.form-control {
+  box-shadow: none;
+  border-color: #eee;
+  height: 49px;
+}
+
+.form-control:focus {
+  box-shadow: none;
+  border-color: #00b09c;
+}
+
+.form-control-feedback {
+  line-height: 50px;
+}
+/*-----------------------------------*/
+
+/*글쓰기 컴펌버튼---------------------*/
+.btn {
+  background: #ffffff;
+  color: #38C5B9;
+}
+
+.btn:hover {
+  color:#ffffff;
+}
+.btn:focus{
+  border-color: white;
+  color:white;
+}
+
+/*-----------------------------------*/
+hr{
+  border-width: 3px;
+  border-color: white;
+}
+#nav{
+  padding-top: 20px;
+  line-height: 45px;
+}
+#nav li a button{
+  width:200px;
+}
+
+.table tr, .table th, .table td{
+  border-style: solid;
+  border-width: 3px;
+  border-color: white;
+}
+
+#title, #category, #body{
+  border-width: 3px;
+  border-color: white;
+}
+
+/*------------------------------------------------------------------*/
+
+.title {
+  font-weight: 700;
+  margin-top: 0px;
+}
+
+p.small.text-muted {
+  margin-bottom: 0px;
+}
+
+.lead {
+  font-style: italic;
+}
+
+.no-margin {
+  margin: 0px !important;
+}
+
+th, td{
+  text-align: center;
+}
+
+/*-----------------------------------*/
+
+/* modal contents */
+.modal .modal-dialog
+{
+  display: block;
+  width: 70%;
+}
+.modal .modal-title{
+  font-size:25px;
+  font-style: bold;
+}
+.modal .modal-body{
+  line-height: 25px;
+  letter-spacing: 2px;
+  text-align: left;
+}
+.modal .nickname,.modal .data{
+  text-align: right;
+}
+
+/*-----modal comment-----*/
+  .btn-group{
+    padding-right: 30px;
+  }
+  .thin{
+    border-width: 1px;
+  }
+
+  .top{
+    padding-bottom: 10px;
+    padding-top: 10px;
+    font-size:18px;
+  }
+
+  .commentAdd{
+    margin-top: 30px;
+  }
+
+  .createdAt{
+    font-size: 12px;
+  }
+    .delete{
+    display: inline;
+
+  }
+ .body{
+  display: block;
+ }

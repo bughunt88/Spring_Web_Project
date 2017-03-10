@@ -28,7 +28,7 @@
         <div class="col-md-6">
             <div class="login-box well">
                     <form action="<%=contextPath%>/member/login" method="post">
-                        <legend><i class="fa fa-users" aria-hidden="true">  Sign In</i></legend>
+                        <legend><i class="fa fa-users" aria-hidden="true" style="color: #38C5B9;">  Sign In</i></legend>
                         <br>
                         <div class="form-group">
                             <label for="ID" class="ho"></label>
@@ -43,10 +43,10 @@
                         <br>
                         <br>
                         <div class="form-group">
-                            <input type="submit" class="btn btn-default btn-login-submit btn-block m-t-md" value="Login" />
+                            <input type="submit" class="btn btn-default btn-login-submit btn-block m-t-md" value="Login" style="color: #38C5B9;" />
                         </div>
                         <div class="form-group">
-                            <a href="<%=contextPath%>/member/insert" class="btn btn-default btn-block m-t-md">Create an account</a>
+                            <a href="<%=contextPath%>/member/insert" class="btn btn-default btn-block m-t-md" style="color: #38C5B9;">Create an account</a>
                         </div>
                     </form>
                 

@@ -65,7 +65,7 @@ body {
 
 /*Loged in*/
 .btn-default {
-    color: #333;
+    color: #38C5B9;
     background-color: #f9f9f9;
     border-color: #ccc;
     border: 1px solid;
@@ -86,5 +86,5 @@ body {
 }
 
 .ho{
-	color: black;
+	color: #38C5B9;
 }
