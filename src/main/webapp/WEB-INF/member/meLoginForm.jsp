@@ -32,12 +32,12 @@
                         <br>
                         <div class="form-group">
                             <label for="ID" class="ho"></label>
-                            <input value='' id="username-email" name="id" placeholder="ID" type="text" class="form-control" />
+                            <input value='' id="username-email" name="id" placeholder="ID" type="text" class="form-control" style="color: #38C5B9;" />
                         </div>
                      
                         <div class="form-group">
                             <label for="password" class="ho"></label>
-                            <input id="password" value='' placeholder="Password" type="password" name="password" class="form-control" />
+                            <input id="password" value='' placeholder="Password" type="password" name="password" class="form-control" style="color: #38C5B9;"/>
                         </div>
       
                         <br>

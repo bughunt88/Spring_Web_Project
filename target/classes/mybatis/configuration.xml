@@ -6,8 +6,10 @@
 <configuration>
 	<typeAliases>
 		<typeAlias type="myproject.member.model.Member" alias="MyMember" />
+		<typeAlias type="myproject.board.model.Board" alias="MyBoard" />
 	</typeAliases>
 	<mappers>
+		<mapper resource="mybatis/board.xml" />
 		<mapper resource="mybatis/member.xml" />
 	</mappers>
 </configuration>

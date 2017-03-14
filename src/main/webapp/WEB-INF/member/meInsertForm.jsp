@@ -28,25 +28,25 @@
         <div class="col-md-6">
             <div class="login-box well">
            			<form action="<%=contextPath%>/member/insert" method="post" name="myform">
-                        <legend><i class="fa fa-file-text-o" aria-hidden="true" style="color: #38C5B9;">  Register</i></legend>
+                        <legend><i class="fa fa-file-text-o" aria-hidden="true" style="color: #38C5B9;" >  Register</i></legend>
                         <br>
                         <div class="form-group">
                             <label for="id" class="ho"></label>
-                            <input value='' name="id" id="username-email" placeholder="id" type="text" class="form-control" />
+                            <input value='' name="id" id="username-email" placeholder="id" type="text" class="form-control" style="color: #38C5B9;"/>
                         </div>
                         
                         <div class="form-group">
                             <label for="email" class="ho"></label>
-                            <input value='' name="email" id="username-email" placeholder="Email Address" type="text" class="form-control" />
+                            <input value='' name="email" id="username-email" placeholder="Email Address" type="text" class="form-control" style="color: #38C5B9;"/>
                         </div>
                      
                         <div class="form-group">
                             <label for="password" class="ho"></label>
-                            <input id="password" value='' placeholder="Password" type="password" name="password" class="form-control" />
+                            <input id="password" value='' placeholder="Password" type="password" name="password" class="form-control" style="color: #38C5B9;" />
                         </div>
                         <div class="form-group">
                             <label for="cpassword" class="ho"></label>
-                            <input id="password" name="cpassword" value='' placeholder="Confirm Password" type="password" name="password" class="form-control" />
+                            <input id="password" name="cpassword" value='' placeholder="Confirm Password" type="password" name="password" class="form-control" style="color: #38C5B9;" />
                         </div>
                         
       
