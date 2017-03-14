@@ -1,3 +1,5 @@
+<%@page import="myproject.board.model.Board"%>
+<%@page import="javax.swing.event.ListSelectionEvent"%>
 <%@page import="java.text.SimpleDateFormat"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
@@ -32,6 +34,7 @@
 		});
 	});
 </script>
+
 <link rel="stylesheet" href="${pageContext.request.contextPath}/css/board/board.css">		
 		<title>D3 Exam</title>
 		<meta charset="utf-8"y>
@@ -58,7 +61,7 @@
 <br id="section-1">
 <br>
 			
-	<h2 class="text-center">글쓰기 </h2>
+	<h2 class="text-center">글쓰기  </h2>
 	<hr>
 	<c:set var="abcd" value="<%=contextPath%>"/>	
 	<form:form role="form" id="contact-form1" class="contact-form1"
@@ -76,7 +79,7 @@
 
 					<select id="category" name="category" class="form-control">
 						<option selected="true" value="none">category</option>
-						<option value="question">질문</option>
+						<option value="question">질문 </option>
 						<option value="study">요청</option>
 					</select>
 				</div>
@@ -112,11 +115,20 @@
 								<hr>
 									<table class="table" class="text-center">
 									<thead>
-									<tr>
-										<th width="20%">Title</th>
-										<th width="20%">Writer </th>
-										<th width="20%">Date</th>
+									<tr >
+										<th width="40%" style="text-align: center;">Title</th>
+										<th width="10%" style="text-align: center;">Writer </th>
+										<th width="10%" style="text-align: center;">Date</th>
 									</tr>
+									<c:forEach var="bean" items="${requestScope.lists}">
+									<tr>
+										<th width="40%"> <a data-toggle="modal" data-target="#myModa${bean.no}" href="<%=contextPath%>/board/comment?no=${bean.no}"><i class="fa fa-circle" aria-hidden="true"> ${bean.title}</i></a> </th>
+										<!-- 모달창 -->
+												<%@ include file="./modal_board.jsp"%>		
+										<th width="10%" style="text-align: center;">${bean.writer} </th>
+										<th width="10%" style="text-align: center;">${bean.regdate}</th>
+									</tr>
+									</c:forEach>
 									</thead>
 
 									</tbody>
@@ -129,10 +141,17 @@
 					<table class="table" class="text-center">
 						<thead>
 						<tr>
-							<th width="20%">Title</th>
-							<th width="20%">Writer</th>
-							<th width="20%">Date</th>
+							<th width="40%" style="text-align: center;">Title</th>
+							<th width="10%" style="text-align: center;">Writer </th>
+							<th width="10%" style="text-align: center;">Date</th>
 						</tr>
+						<c:forEach var="bean1" items="${requestScope.lists1}">
+						<tr>
+							<th width="40%"> <a href="<%=contextPath%>/board/detail?no=${bean.no}"><i class="fa fa-circle" aria-hidden="true"> ${bean1.title}</i></a> </th>
+							<th width="10%" style="text-align: center;">${bean1.writer} </th>
+							<th width="10%" style="text-align: center;">${bean1.regdate}</th>
+						</tr>
+							</c:forEach>
 						</thead>
 							<tbody>
 						</tbody>

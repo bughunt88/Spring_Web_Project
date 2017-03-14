@@ -6,12 +6,32 @@
 <mapper namespace="myproject.board.model">
 
 	<insert id="InsertData" parameterType="MyBoard">
-		insert into boards(no, title, category, writer, body, upfile, regdate) 
-		values( myboard.nextval, #{title}, #{category}, #{writer}, #{body}, #{upfile}, #{regdate})
-	</insert>	
-	
-	<select id="Allsuch" parameterType="MyBoard">
+		insert into boards(no,
+		title, category, writer, body, upfile, regdate)
+		values( myboard.nextval, #{title}, #{category}, #{writer}, #{body},
+		#{upfile}, #{regdate})
+	</insert>
+
+	<select id="SelectDataList" resultType="MyBoard" parameterType="hashmap">
 		select * from boards
+		where category = 'question'
+		order by no desc
 	</select>
 
+	<select id="SelectDataList1" resultType="MyBoard" parameterType="hashmap">
+		select * from boards
+		where category = 'study'
+		order by no desc
+	</select>
+	
+	<select id="SelectDataByPk" resultType="MyBoard">
+		select * from comments
+		where no = #{no}
+	</select>
+	
+	<select id="SelectDataByPk1" resultType="MyBoard">
+		select * from boards
+		where no = #{no}
+	</select>
+	
 </mapper>

@@ -25,12 +25,19 @@ public class MyUtility {
 			String now = sdf.format( date ) ;
 			
 			String somefile = multi.getOriginalFilename() ;
-			int dot = somefile.indexOf(".") ;
-			String filename = somefile.substring(0, dot) ;
-			String fileext = somefile.substring(dot) ;
-			newfile = filename + now + fileext ; 
+			System.out.println(somefile +"!!!!!!!!!!!!!!!!!!");
 			
-			myfile = webServerPath + File.separator  + newfile  ;
+			if(somefile == null || somefile ==""){
+				return null;
+			}else{
+				int dot = somefile.indexOf(".") ;
+				String filename = somefile.substring(0, dot) ;
+				String fileext = somefile.substring(dot) ;
+				newfile = filename + now + fileext ; 
+				
+				myfile = webServerPath + File.separator  + newfile  ;
+			}
+		
 			
 		}else{
 			myfile = webServerPath + File.separator + multi.getOriginalFilename() ;	

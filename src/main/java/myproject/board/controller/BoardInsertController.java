@@ -63,6 +63,9 @@ public class BoardInsertController extends FileUploadAdapter {
 			if( newfilename != null ){
 				xxx.setUpfile( newfilename  ); 
 				cnt = this.boardDao.InsertData( xxx ) ;	
+			} else{
+				
+				cnt = this.boardDao.InsertData( xxx ) ;	
 			}
 			mav.setViewName( "redirect:/board/main");
 		}				

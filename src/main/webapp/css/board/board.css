@@ -52,8 +52,8 @@ body {
 
 /*글쓰기 컴펌버튼---------------------*/
 .btn {
-  background: #ffffff;
-  color: #38C5B9;
+  background: #38C5B9;
+  color: #ffffff;
 }
 
 .btn:hover {
@@ -63,6 +63,8 @@ body {
   border-color: white;
   color:white;
 }
+
+
 
 /*-----------------------------------*/
 hr{

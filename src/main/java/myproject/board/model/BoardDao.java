@@ -24,12 +24,31 @@ public class BoardDao {
 		return cnt;
 	}	
 	
-	public List<Board> SelectDataList( Map<String, String> map) {
+	public List<Board> SelectDataList() {
 		List<Board> lists = new ArrayList<Board>();
-		lists = sqlSessionTemplate.selectList(namespace + "SelectDataList", map); 
+		lists = sqlSessionTemplate.selectList(namespace + "SelectDataList"); 
 		return lists;
 	}
 	
+	public List<Board> SelectDataList1() {
+		List<Board> lists1 = new ArrayList<Board>();
+		lists1 = sqlSessionTemplate.selectList(namespace + "SelectDataList1"); 
+		return lists1;
+	}
+	
+	public Board SelectDataByPk(int pmKey) {
+		Board bean = null;
+		bean = sqlSessionTemplate.selectOne(namespace + "SelectDataByPk",
+				pmKey);
+		return bean;
+	}	
+	
+	public Board SelectDataByPk1(int pmKey) {
+		Board bean = null;
+		bean = sqlSessionTemplate.selectOne(namespace + "SelectDataByPk1",
+				pmKey);
+		return bean;
+	}	
 	
 	
 }

@@ -1,44 +1,32 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <html>
 <head>
-<meta http-equiv="Content-Type" content="text/html; charset=EUC-KR">
 <title>Insert title here</title>
+
 </head>
-<body>
+<body >
 
-
-
-<div id="myModa<%=i%>" class="modal fade in">
+<div id="myModa${bean.no}" class="modal fade in">
 	<div class="modal-dialog modal-lg">
 		<div class="modal-content">
 
 			<div class="modal-header">
-				<h1 class="modal-title"><%= boards[i].title %></h1>
+				<h1 class="modal-title" style="color: #38C5B9;">${bean.title} </h1>
 					<div class="nickname date">
-						<b><%= boards[i].author.nickname %></b>
+						<b style="color: #38C5B9;">${bean.writer} </b>
 						<br>
-						<p class="createdAt"><%= boards[i].createdAt.toLocaleDateString() %></p>
+						<p class="createdAt" style="color: #38C5B9;">${bean.regdate}</p>
 					</div>
 				</div>
-<div class="modal-body">
+<div class="modal-body" style="color: #38C5B9;">
 
-<!-- 사진 보이기 부분 -->
-	<% if(boards[i].filename) {%>
-	<img src="/user/<%= boards[i].filename %>" alt="">
-	<% } %>
-<!-- 사진 보이기 부분 -->
-
-<%= boards[i].body %>
-
+${bean.body}
 
 </div>
 
-
-<!-- 글 내용 안 닉네임 작성일 시작 -->
-
-<!-- 글 내용 안 닉네임 작성일 끝 -->
 <row>
 <div class="modal-footer">
 
@@ -52,48 +40,35 @@
 	col-md-offset-8 col-md-4">
 
 		<div class="comments">
-			<h4>Comments (<%= boards[i].comments?boards[i].comments.length:"0" %>)</h4>
-
+			<h4 style="color: #38C5B9;">Comments (${comment.length})</h4>
+		
 			<hr>
-
-			<% if(boards[i].comments) { %>
-
+ 
+  
+				<c:forEach var="bean1" items="${requestScope.xxx}">
 					<div class="comment">
 						<div class="top">
-							<% if(user && user.equals(comment.author._id)) { %>
 
-								<form class="delete"  method="post"
-									action="/boards/<%=boards[i]._id%>/comments/<%=comment._id%>?_method=delete">
-										<button type="submit" class="btn btn-primary btn-xs" > x </button>
-								</form>
-
-							<% } %>
-							<span class="nickname"><b><%= comment.author.nickname %></b> / </span>
-							<span class="createdAt"><%= comment.author.createdAt.toLocaleDateString() %></span>
+							<span class="nickname"><b>${comment.writer}</b> / </span>
+							<span class="createdAt">${comment.regdate}</span>
 							<hr class="thin">
 						</div>
 							<div class="body">
-								<% if(boards[i].filename) {%>
-                  <img src="/user/<%= boards[i].filename %>" alt="">
-                <% } %>
-
-								<p><%= comment.body %></p>
+									<p>${comment.body}</p>
 							</div>
 
 
 						</div>
 					</div>
 					<hr>
-			<% } %>
+			</c:forEach>
+			
 		<div>
 			<form class="addComment checkValidation"
-				action="/boards/<%=boards[i]._id%>/comments?" method="post">
-
-				<textarea class="col-sm-12 cvRequired" type="text" name="comment[body]"
-					cvRqErrMsg="comments is empty." cvRqErrTo="#cvErrTitle" <%= user?"":"disabled" %>
-					placeholder="<%= user?"Add comment here":"Please login to make a comment" %>"></textarea>
-
-				<button type="submit" class="btn btn-primary commentAdd" <%= user?"":"disabled" %>>Comment</button>
+				action="/boards/comments?" method="post">
+				<textarea style="resize: none; wrap:hard; color: #38C5B9;"  class="col-sm-12 cvRequired" type="text" name="body"
+					cvRqErrMsg="comments is empty." cvRqErrTo="#cvErrTitle" ></textarea>
+				<button type="submit" class="btn main-btn pull-right" id="writeSubmit" style="background: #ffffff; color: #38C5B9;">Comment</button>
 				<div id="cvErrTitle" class="message"></div>
 			</form>
 		 </div>
@@ -102,6 +77,8 @@
 
 	</div>
 	<!-- 댓글 끝 -->
+
+
 </div>
 
 
