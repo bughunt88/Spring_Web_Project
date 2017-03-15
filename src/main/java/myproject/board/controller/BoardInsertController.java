@@ -22,7 +22,7 @@ import myproject.common.MyUtility;
 @RequestMapping(value = "/board")
 public class BoardInsertController extends FileUploadAdapter {
 	private final String command = "/insert" ; //복사 후 반드시 수정하세요
-	private final String mymodel = "board" ;
+	private final String mymodel = "member" ;
 	
 	@RequestMapping( value = command, method = RequestMethod.GET )
 	public String doGet( ){

@@ -1,3 +1,4 @@
+<%@page import="java.text.SimpleDateFormat"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 <%@page import="myproject.member.model.Member"%>
@@ -8,6 +9,16 @@
 
 <%@ taglib prefix="spring" uri="http://www.springframework.org/tags"%>
 <%@ taglib prefix="form" uri="http://www.springframework.org/tags/form"%>
+
+
+<% 
+	//오늘 만들어 주는 코딩
+	Date d = new Date(); 
+	String now = d.toString();
+	SimpleDateFormat formaType = new SimpleDateFormat("yyyy-MM-dd");
+	application.setAttribute("formaType", formaType);
+	application.setAttribute("d", d);
+%>
 
 <%
 	String contextPath = request.getContextPath() + "";

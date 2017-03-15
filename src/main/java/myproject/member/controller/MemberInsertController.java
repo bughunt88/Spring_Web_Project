@@ -49,7 +49,6 @@ public class MemberInsertController {
 		} else { //회원 가입에 문제가 없다면
 			int cnt = -99999 ; //회원 가입
 			cnt = this.memberDao.InsertData( xxx ) ;
-			session.setAttribute("abc", xxx);
 			session.setAttribute("loginfo", xxx);
 						
 			//가입 되었다면 로그인 페이지로 이동

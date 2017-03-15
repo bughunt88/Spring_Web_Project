@@ -7,9 +7,11 @@
 	<typeAliases>
 		<typeAlias type="myproject.member.model.Member" alias="MyMember" />
 		<typeAlias type="myproject.board.model.Board" alias="MyBoard" />
+		<typeAlias type="myproject.board.model.Comment" alias="MyComment" />
 	</typeAliases>
 	<mappers>
 		<mapper resource="mybatis/board.xml" />
 		<mapper resource="mybatis/member.xml" />
+		<mapper resource="mybatis/comment.xml" />
 	</mappers>
 </configuration>

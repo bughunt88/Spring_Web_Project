@@ -34,8 +34,6 @@ public class BoardMainController {
 
 		mav.addObject("lists", lists);
 		mav.addObject("lists1",lists1);
-		session.setAttribute("board", lists);
-		session.setAttribute("board1", lists1);
 		
 		mav.setViewName("board/bmain");
 		return mav;

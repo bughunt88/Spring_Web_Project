@@ -6,10 +6,7 @@
 <!DOCTYPE html>
 
 <%@ include file="./../common/favicon.jsp"%>
-<% Date d = new Date(); 
-	String now = d.toString();
-	SimpleDateFormat formaType = new SimpleDateFormat("yyyy-MM-dd");
-%>
+
 <head>
 	<script>
 	$(document).ready(function(){
@@ -60,8 +57,7 @@
 
 <br id="section-1">
 <br>
-			
-	<h2 class="text-center">글쓰기  </h2>
+	<h2 class="text-center ">글쓰기 </h2>
 	<hr>
 	<c:set var="abcd" value="<%=contextPath%>"/>	
 	<form:form role="form" id="contact-form1" class="contact-form1"
@@ -106,7 +102,6 @@
 			</div>
 		</div>
 	</form:form>
-
 			<br>
 			<br>
 			<br id="section-3">
@@ -120,11 +115,16 @@
 										<th width="10%" style="text-align: center;">Writer </th>
 										<th width="10%" style="text-align: center;">Date</th>
 									</tr>
+									
 									<c:forEach var="bean" items="${requestScope.lists}">
+									
 									<tr>
+									
 										<th width="40%"> <a data-toggle="modal" data-target="#myModa${bean.no}" href="<%=contextPath%>/board/comment?no=${bean.no}"><i class="fa fa-circle" aria-hidden="true"> ${bean.title}</i></a> </th>
 										<!-- 모달창 -->
+										
 												<%@ include file="./modal_board.jsp"%>		
+										
 										<th width="10%" style="text-align: center;">${bean.writer} </th>
 										<th width="10%" style="text-align: center;">${bean.regdate}</th>
 									</tr>

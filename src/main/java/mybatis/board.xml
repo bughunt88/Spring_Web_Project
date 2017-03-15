@@ -11,7 +11,7 @@
 		values( myboard.nextval, #{title}, #{category}, #{writer}, #{body},
 		#{upfile}, #{regdate})
 	</insert>
-
+	
 	<select id="SelectDataList" resultType="MyBoard" parameterType="hashmap">
 		select * from boards
 		where category = 'question'
@@ -22,11 +22,6 @@
 		select * from boards
 		where category = 'study'
 		order by no desc
-	</select>
-	
-	<select id="SelectDataByPk" resultType="MyBoard">
-		select * from comments
-		where no = #{no}
 	</select>
 	
 	<select id="SelectDataByPk1" resultType="MyBoard">

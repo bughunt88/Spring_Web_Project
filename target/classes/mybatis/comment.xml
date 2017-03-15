@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+	"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<!-- 회원Dao의 Namespace 변수 확인 요망 -->
+<mapper namespace="myproject.board.model">
+
+	<insert id="InsertComment" parameterType="MyComment">
+		insert into comments(cnum, no, writer, body, regdate)
+		values( seqcnum.nextval, #{no}, #{writer}, #{body}, #{regdate})
+	</insert>
+
+	<select id="SelectDataByPk" resultType="MyComment">
+		select * from comments
+		where no = #{no}
+	</select>
+	
+</mapper>
