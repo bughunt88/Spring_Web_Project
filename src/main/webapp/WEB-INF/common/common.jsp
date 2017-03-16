@@ -16,8 +16,6 @@
 	Date d = new Date(); 
 	String now = d.toString();
 	SimpleDateFormat formaType = new SimpleDateFormat("yyyy-MM-dd");
-	application.setAttribute("formaType", formaType);
-	application.setAttribute("d", d);
 %>
 
 <%

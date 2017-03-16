@@ -50,5 +50,19 @@ public class BoardDao {
 		return bean;
 	}	
 	
+	public int DeleteData(int pmKey) {
+		int cnt = -1;
+		cnt = sqlSessionTemplate.delete(namespace + "DeleteData", pmKey);
+		return cnt;
+	}	
+	
+	public Integer UpdateData(Board bean) {
+		Integer cnt = -1;
+		cnt = sqlSessionTemplate.update(namespace + "UpdateData", bean);
+		return cnt;
+	}
+	
+	
+	
 	
 }

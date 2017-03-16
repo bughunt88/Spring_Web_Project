@@ -30,4 +30,11 @@ public class CommentDao {
 		return cnt;
 	}	
 	
+	public int DeleteData1(int pmKey) {
+		int cnt = -1;
+		cnt = sqlSessionTemplate.delete(namespace + "DeleteData1", pmKey);
+		return cnt;
+	}	
+	
+	
 }

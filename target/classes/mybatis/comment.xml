@@ -6,13 +6,21 @@
 <mapper namespace="myproject.board.model">
 
 	<insert id="InsertComment" parameterType="MyComment">
-		insert into comments(cnum, no, writer, body, regdate)
-		values( seqcnum.nextval, #{no}, #{writer}, #{body}, #{regdate})
+		insert into
+		comments(cnum, no, writer, body, regdate)
+		values( seqcnum.nextval,
+		#{no}, #{writer}, #{body}, #{regdate})
 	</insert>
 
 	<select id="SelectDataByPk" resultType="MyComment">
 		select * from comments
 		where no = #{no}
 	</select>
-	
+
+	<delete id="DeleteData1" parameterType="MyComment">
+		delete from comments
+		where
+		cnum = #{cnum}
+	</delete>
+
 </mapper>

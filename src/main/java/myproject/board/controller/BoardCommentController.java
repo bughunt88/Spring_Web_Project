@@ -30,18 +30,22 @@ public class BoardCommentController extends FileUploadAdapter {
 	private final String mymodel = "comment" ;
 	
 	@RequestMapping( value = command, method = RequestMethod.GET )
-	public ModelAndView doGet(HttpServletRequest request, HttpSession session, @RequestParam(value="no", required=false) int no,
+	public String doGet(HttpServletRequest request, HttpSession session, @RequestParam(value="no", required=false) int no,
 			Model model ){
-		ModelAndView mav = new ModelAndView();
-		System.out.println(no);
 		
 		List<Comment> xxx = this.commentDao.SelectDataByPk( no ) ;
+		Board lists = this.boardDao.SelectDataByPk1(no);
+		int cnt = - 1 ; 
 		
-		mav.addObject("comment",xxx);
+		model.addAttribute("comment", xxx) ;
+		model.addAttribute("bean", lists) ;
+		
 		session.setAttribute("ccc", xxx);
-		System.out.println(xxx);
 		
-		return mav;
+		System.out.println(lists);
+
+		
+		return "board/modal_board1" ;	
 	}
 	
 	@Autowired
@@ -58,10 +62,8 @@ public class BoardCommentController extends FileUploadAdapter {
 	}
 	
 	@RequestMapping(value = command, method=RequestMethod.POST)
-	public ModelAndView bbb( 
-			@ModelAttribute( mymodel ) @Valid Comment xxx,
-			BindingResult asdf, HttpSession session ){
-		System.out.println( xxx.toString() +"!!!!!!!!!!!!!!!!!@@@@@@@@!!!!!!!!!!!" );
+	public ModelAndView bbb( @Valid Comment xxx, @RequestParam(value="no", required=false) int no,
+			BindingResult asdf){ 
 		
 		ModelAndView mav = new ModelAndView() ;
 		
@@ -73,10 +75,9 @@ public class BoardCommentController extends FileUploadAdapter {
 			mav.setViewName( "board/main" );
 			
 		} else { 
-			System.out.println(xxx + "!!!!!!!!!!!!!!!!!!!");
 			cnt = this.commentDao.InsertComment( xxx ) ;	
 				
-			mav.setViewName( "redirect:/board/main" );
+			mav.setViewName( "redirect:/board/comment"+ "?no=" + no);
 		}				
 		return mav ;	
 	}		

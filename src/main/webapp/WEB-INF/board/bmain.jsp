@@ -120,15 +120,13 @@
 									
 									<tr>
 									
-										<th width="40%"> <a data-toggle="modal" data-target="#myModa${bean.no}" href="<%=contextPath%>/board/comment?no=${bean.no}"><i class="fa fa-circle" aria-hidden="true"> ${bean.title}</i></a> </th>
+										<th width="40%"> <a data-toggle="modal" href="<%=contextPath%>/board/comment?no=${bean.no}"><i class="fa fa-circle" aria-hidden="true"> ${bean.title}</i></a> </th>
 										<!-- 모달창 -->
-										
-												<%@ include file="./modal_board.jsp"%>		
-										
 										<th width="10%" style="text-align: center;">${bean.writer} </th>
 										<th width="10%" style="text-align: center;">${bean.regdate}</th>
 									</tr>
 									</c:forEach>
+									
 									</thead>
 
 									</tbody>
@@ -147,7 +145,7 @@
 						</tr>
 						<c:forEach var="bean1" items="${requestScope.lists1}">
 						<tr>
-							<th width="40%"> <a href="<%=contextPath%>/board/detail?no=${bean.no}"><i class="fa fa-circle" aria-hidden="true"> ${bean1.title}</i></a> </th>
+							<th width="40%"> <a data-toggle="modal" href="<%=contextPath%>/board/comment?no=${bean1.no}"><i class="fa fa-circle" aria-hidden="true"> ${bean1.title}</i></a> </th>
 							<th width="10%" style="text-align: center;">${bean1.writer} </th>
 							<th width="10%" style="text-align: center;">${bean1.regdate}</th>
 						</tr>

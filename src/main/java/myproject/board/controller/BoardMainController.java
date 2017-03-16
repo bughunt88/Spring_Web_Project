@@ -14,6 +14,7 @@ import org.springframework.web.servlet.ModelAndView;
 
 import myproject.board.model.Board;
 import myproject.board.model.BoardDao;
+import myproject.member.model.Member;
 
 @Controller
 @RequestMapping(value = "/board")
@@ -25,7 +26,7 @@ public class BoardMainController {
 	private BoardDao boardDao;
 
 	@RequestMapping(value = command, method = RequestMethod.GET)
-	public ModelAndView doGet(HttpServletRequest request, HttpSession session) {
+	public ModelAndView doGet(HttpServletRequest request, HttpSession session, Member member) {
 		
 		ModelAndView mav = new ModelAndView();
 

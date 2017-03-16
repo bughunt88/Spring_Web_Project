@@ -29,4 +29,17 @@
 		where no = #{no}
 	</select>
 	
+	<delete id="DeleteData" parameterType="MyBoard">
+		delete from boards
+		where
+		no = #{no}
+	</delete>	
+	
+	<update id="UpdateData" parameterType="MyBoard">
+		update boards set
+		title=#{title}, writer=#{writer}, category=#{category},
+		body=#{body}, upfile=#{upfile}, regdate=#{regdate}
+		where no=#{no}
+	</update>
+	
 </mapper>
