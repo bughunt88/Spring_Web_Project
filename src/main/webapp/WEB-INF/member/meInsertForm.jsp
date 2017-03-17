@@ -27,26 +27,31 @@
         <div class='col-md-3'></div>
         <div class="col-md-6">
             <div class="login-box well">
-           			<form action="<%=contextPath%>/member/insert" method="post" name="myform">
+            		<c:set var="abcd" value="<%=contextPath%>" />
+           			<form:form role="form" action="${abcd}/member/insert" method="post" name="myform" commandName="member">
                         <legend><i class="fa fa-file-text-o" aria-hidden="true" style="color: #38C5B9;" >  Register</i></legend>
                         <br>
                         <div class="form-group">
                             <label for="id" class="ho"></label>
                             <input value='' name="id" id="username-email" placeholder="id" type="text" class="form-control" style="color: #38C5B9;"/>
+                            <form:errors path="id" cssClass="myerr" /> 
                         </div>
                         
                         <div class="form-group">
                             <label for="email" class="ho"></label>
                             <input value='' name="email" id="username-email" placeholder="Email Address" type="text" class="form-control" style="color: #38C5B9;"/>
+                        	<form:errors path="email" cssClass="myerr" /> 
                         </div>
                      
                         <div class="form-group">
                             <label for="password" class="ho"></label>
                             <input id="password" value='' placeholder="Password" type="password" name="password" class="form-control" style="color: #38C5B9;" />
+                        	<form:errors path="password" cssClass="myerr" /> 
                         </div>
                         <div class="form-group">
                             <label for="cpassword" class="ho"></label>
-                            <input id="password" name="cpassword" value='' placeholder="Confirm Password" type="password" name="password" class="form-control" style="color: #38C5B9;" />
+                            <input id="repassword" name="repassword" value='' placeholder="Confirm Password" type="password" name="password" class="form-control" style="color: #38C5B9;" />
+                        	<form:errors path="repassword" cssClass="myerr" /> 
                         </div>
                         
       
@@ -59,7 +64,7 @@
                             <a href="<%=contextPath%>/member/login"><input type="button" class="btn btn-default btn-login-submit btn-block m-t-md" value="Back" style="color: #38C5B9;"/></a>
                         </div>
                         
-                    </form>
+                    </form:form>
                 
             </div>
         </div>

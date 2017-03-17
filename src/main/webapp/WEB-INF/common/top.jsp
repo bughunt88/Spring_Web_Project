@@ -59,16 +59,19 @@
 		<%
 			}
 		%>
-		<li class="menu__item"><a href="" class="menu__link"><i
-				class="fa fa-bar-chart"></i> Work</a></li>
+		<li class="menu__item"><a href="<%=contextPath%>/work/main"
+			class="menu__link"><i class="fa fa-bar-chart"></i> Work</a></li>
 
 		<li class="menu__item"><a href="<%=contextPath%>/history/main"
 			class="menu__link menu__link--social"><i class="fa fa-book"></i>
 				History</a></li>
-
-		<li class="menu__item"><a href="<%=contextPath%>/board/main"
-			class="menu__link"><i class="glyphicon glyphicon-pencil"></i>
-				Board</a></li>
+		
+		
+		<li class="menu__item">
+		<c:if test="${not empty sessionScope.loginfo}">
+				<a href="<%=contextPath%>/board/main" class="menu__link"><i
+					class="glyphicon glyphicon-pencil"></i> Board</a></c:if></li>
+		
 
 		<li class="menu__item"><c:if test="${empty sessionScope.loginfo}">
 				<a href="<%=contextPath%>/member/login"

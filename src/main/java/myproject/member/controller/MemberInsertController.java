@@ -18,42 +18,54 @@ import myproject.member.model.MemberDao;
 @Controller
 @RequestMapping(value = "/member")
 public class MemberInsertController {
-	private final String command = "/insert" ; //복사 후 반드시 수정하세요
-	private final String mymodel = "member" ;
-	
+	private final String command = "/insert"; // 복사 후 반드시 수정하세요
+	private final String mymodel = "member";
+
 	@Autowired
 	@Qualifier("myMemberDao")
-	private MemberDao memberDao;	
-	
-	@RequestMapping( value = command, method = RequestMethod.GET )
-	public String doGet( ){
-		return "member/meInsertForm" ; 
-	}
-	
-	@ModelAttribute( mymodel )
-	public Member sdd(){
-		return new Member() ;
-	}	
-	
-	@RequestMapping( value = command, method = RequestMethod.POST )
-	public ModelAndView doPost( 
-			@ModelAttribute( mymodel ) @Valid Member xxx,
-			BindingResult asdf, HttpSession session ){
-		
-		ModelAndView mav = new ModelAndView() ;
-		
-		if ( asdf.hasErrors() ) {
+	private MemberDao memberDao;
 
+	@RequestMapping(value = command, method = RequestMethod.GET)
+	public String doGet() {
+		return "member/meInsertForm";
+	}
+
+	@ModelAttribute(mymodel)
+	public Member sdd() {
+		return new Member();
+	}
+
+	@RequestMapping(value = command, method = RequestMethod.POST)
+	public ModelAndView doPost(@ModelAttribute(mymodel) @Valid Member xxx, BindingResult asdf, HttpSession session) {
+
+		ModelAndView mav = new ModelAndView();
+		System.out.println("1");
+
+		if (asdf.hasErrors()) {
+			mav.addObject("bean", xxx);
 			mav.setViewName("member/meInsertForm");
+			System.out.println("2");
+
+		} else {
 			
-		} else { //회원 가입에 문제가 없다면
-			int cnt = -99999 ; //회원 가입
-			cnt = this.memberDao.InsertData( xxx ) ;
-			session.setAttribute("loginfo", xxx);
-						
-			//가입 되었다면 로그인 페이지로 이동
-			mav.setViewName( "redirect:/common/main" );
-		}		
-		return mav ; 
+			if (xxx.getPassword().equals(xxx.getRepassword()) == false ) {
+
+				System.out.println("4");
+				mav.setViewName("member/meInsertForm");
+				
+			} else {
+				
+				int cnt = -99999;
+				cnt = this.memberDao.InsertData(xxx);
+				session.setAttribute("loginfo", xxx);
+
+				System.out.println("3");
+
+				mav.setViewName("redirect:/common/main");
+			}
+		}
+
+		return mav;
+
 	}
 }

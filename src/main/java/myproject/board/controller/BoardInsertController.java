@@ -1,5 +1,7 @@
 package myproject.board.controller;
 
+import java.util.List;
+
 import javax.servlet.http.HttpSession;
 import javax.validation.Valid;
 
@@ -22,7 +24,7 @@ import myproject.common.MyUtility;
 @RequestMapping(value = "/board")
 public class BoardInsertController extends FileUploadAdapter {
 	private final String command = "/insert" ; //복사 후 반드시 수정하세요
-	private final String mymodel = "member" ;
+	private final String mymodel = "board" ;
 	
 	@RequestMapping( value = command, method = RequestMethod.GET )
 	public String doGet( ){
@@ -50,8 +52,15 @@ public class BoardInsertController extends FileUploadAdapter {
 		if ( asdf.hasErrors() ) {
 			System.out.println( "오류 있음" );
 			System.out.println( asdf );
+			
+			List<Board> lists = this.boardDao.SelectDataList();
+			List<Board> lists1 = this.boardDao.SelectDataList1();
+
+			mav.addObject("lists", lists);
+			mav.addObject("lists1",lists1);
+
 			mav.addObject("bean", xxx ) ;
-			mav.setViewName( "board/main" );
+			mav.setViewName( "/board/bmain" );
 			
 		} else { 
 			
@@ -63,6 +72,7 @@ public class BoardInsertController extends FileUploadAdapter {
 			if( newfilename != null ){
 				xxx.setUpfile( newfilename  ); 
 				cnt = this.boardDao.InsertData( xxx ) ;	
+				
 			} else{
 				
 				cnt = this.boardDao.InsertData( xxx ) ;	

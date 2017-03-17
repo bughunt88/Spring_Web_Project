@@ -1,12 +1,18 @@
 package myproject.board.model;
 
+import org.hibernate.validator.constraints.NotEmpty;
 import org.springframework.web.multipart.MultipartFile;
 
 public class Board {
+	private final String INPUT = "This field is required." ;
+	
 	 private int no; 
+	 @NotEmpty(message = INPUT )	
 	 private String title ;
+	 @NotEmpty(message = INPUT )	
 	 private String category ;
 	 private String writer;
+	 @NotEmpty(message = INPUT )	
 	 private String body ;
 	 private String upfile ;
 	 private String regdate ;
