@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+	"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<!-- 회원Dao의 Namespace 변수 확인 요망 -->
+<mapper namespace="myproject.work.model">
+
+	<insert id="InsertaComment" parameterType="MyaComment">
+		insert into
+		acomments(cnum, no, writer, body, regdate)
+		values( seqcnum1.nextval,
+		#{no}, #{writer}, #{body}, #{regdate})
+	</insert>
+
+	<select id="SelectDataByPk" resultType="MyaComment">
+		select * from acomments
+		where no = #{no}
+	</select>
+
+	<delete id="DeleteData1" parameterType="MyaComment">
+		delete from acomments
+		where
+		cnum = #{cnum}
+	</delete>
+
+	<select id="GetTotalCount1" resultType="int" parameterType="MyaComment">
+		select count(*) from acomments
+		where no = #{no}
+	</select>
+	
+</mapper>

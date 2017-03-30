@@ -108,7 +108,6 @@
 .myerr {
 	color: red;
 	font-size: 9pt;
-	font-weight: bold;
 }
 </style>
 

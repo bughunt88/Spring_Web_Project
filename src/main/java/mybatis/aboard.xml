@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+	"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<!-- 회원Dao의 Namespace 변수 확인 요망 -->
+<mapper namespace="myproject.work.model">
+
+	<insert id="InsertData" parameterType="MyaBoard">
+		insert into aboards(no,
+		title, body , body1, body2, regdate, writer )
+		values( myboard1
+		.nextval, #{title}, #{body}, #{body1}, #{body2}, #{regdate},
+		#{writer})
+	</insert>
+
+	<select id="SelectDataList" resultType="MyaBoard" parameterType="hashmap">
+		select * from aboards
+		order by no desc
+	</select>
+
+	<select id="SelectDataByPk1" resultType="MyaBoard">
+		select * from aboards
+		where no = #{no}
+	</select>
+
+	<delete id="DeleteData" parameterType="MyaBoard">
+		delete from aboards
+		where
+		no = #{no}
+	</delete>
+
+	<update id="UpdateData" parameterType="MyaBoard">
+		update aboards set
+		title=#{title}, body=#{body}, body1=#{body1},
+		body2=#{body2}
+		where
+		no=#{no}
+	</update>
+
+	<select id="GetTotalCount" resultType="int" parameterType="MyaBoard">
+		select count(*) from aboards
+	</select>
+	
+</mapper>

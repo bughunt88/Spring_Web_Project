@@ -46,12 +46,12 @@
 				<br> <br> <br> <br>
 
 				<div class="comments">
+
+					<h4>Comments</h4>
+
+					<!-- !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!! -->
+
 					<c:forEach var="bean1" items="${requestScope.comment}">
-						<h4>Comments</h4>
-
-						<!-- !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!! -->
-
-
 						<div class="comment">
 
 							<div class="top">
@@ -66,9 +66,9 @@
 											x</button>
 									</form>
 								</c:if>
-									<span class="nickname"><b>${bean1.writer} / </b></span>
-									<span class="createdAt">${bean1.regdate}</span>
-									<hr class="thin">
+								<span class="nickname"><b>${bean1.writer} / </b></span> <span
+									class="createdAt">${bean1.regdate}</span>
+								<hr class="thin">
 							</div>
 
 							<div class="body1">${bean1.body}</div>

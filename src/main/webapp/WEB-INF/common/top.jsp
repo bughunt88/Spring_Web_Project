@@ -60,7 +60,7 @@
 			}
 		%>
 		<li class="menu__item"><a href="<%=contextPath%>/work/main"
-			class="menu__link"><i class="fa fa-bar-chart"></i> Work</a></li>
+			class="menu__link"><i class="fa fa-bar-chart"></i> Analysis</a></li>
 
 		<li class="menu__item"><a href="<%=contextPath%>/history/main"
 			class="menu__link menu__link--social"><i class="fa fa-book"></i>

@@ -15,6 +15,7 @@
 		
 		<link rel="stylesheet" href="${pageContext.request.contextPath}/css/board/demo1.css">	
 		<link rel="stylesheet" href="${pageContext.request.contextPath}/css/board/component.css">	
+		
 		<script src="${pageContext.request.contextPath}/js/board/modernizr.custom.js"></script>
 		
 		<link rel="shortcut icon" href="../favicon.ico">

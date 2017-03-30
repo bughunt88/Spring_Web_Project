@@ -1,0 +1,43 @@
+/*footer*/
+html, body, ul, li, a{
+  margin:0;
+  padding:0;
+}
+
+html {
+  position: relative;
+  min-height: 100%;
+}
+body {
+  margin-top: 10%;
+  margin-bottom: 10%;
+}
+
+/* 컴펌버튼---------------------*/
+.btn {
+  background: #ffffff;
+
+  color: #38C5B9;
+
+  float: right;
+}
+.btn:hover {
+  -webkit-transition: ease-in-out 0.5s;
+  color:#ffffff;
+}
+.btn:focus{
+  border-color: #ffffff;
+  color:white;
+}
+
+
+/*테두리*/
+hr{
+  border-width: 3px;
+  border-color: #ffffff;
+}
+.table tr, .table th, .table td{
+  border-style: solid;
+  border-width: 3px;
+  border-color: #ffffff;
+}

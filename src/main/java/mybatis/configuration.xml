@@ -8,10 +8,14 @@
 		<typeAlias type="myproject.member.model.Member" alias="MyMember" />
 		<typeAlias type="myproject.board.model.Board" alias="MyBoard" />
 		<typeAlias type="myproject.board.model.Comment" alias="MyComment" />
+		<typeAlias type="myproject.work.model.aBoard" alias="MyaBoard" />
+		<typeAlias type="myproject.work.model.aComment" alias="MyaComment" />
 	</typeAliases>
 	<mappers>
 		<mapper resource="mybatis/board.xml" />
 		<mapper resource="mybatis/member.xml" />
 		<mapper resource="mybatis/comment.xml" />
+		<mapper resource="mybatis/aboard.xml" />
+		<mapper resource="mybatis/acomment.xml" />
 	</mappers>
 </configuration>
