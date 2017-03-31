@@ -16,6 +16,8 @@ public class Board {
 	 private String body ;
 	 private String upfile ;
 	 private String regdate ;
+	 
+	 
 	 private MultipartFile upload; 
 		
 		

@@ -7,23 +7,23 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 
-import myproject.work.model.aBoardDao;
+import myproject.work.model.aCommentDao;
 
 @Controller
 @RequestMapping(value = "/work")
-public class WorkDeleteController {
-	private final String command = "/delete"; // 복사 후 반드시 수정하세요
+public class WorkcDeleteController {
+	private final String command = "/cdelete"; // 복사 후 반드시 수정하세요
 
 	@Autowired
-	@Qualifier("myaBoardDao")
-	private aBoardDao aboardDao;
+	@Qualifier("myaCommentDao")
+	private aCommentDao acommentDao;
 
 	@RequestMapping(value = command, method = RequestMethod.POST)
-	public String bbb(@RequestParam(value = "no", required = false) int no) {
+	public String bbb(@RequestParam(value = "cnum", required = false)  int cnum, @RequestParam(value = "no", required = false) int no) {
 		
 		int cnt = -99999 ;
-		cnt = this.aboardDao.DeleteData( no ) ; 
+		cnt = this.acommentDao.DeleteData1( cnum ) ; 
 		
-		return "redirect:/work/main";
+		return "redirect:/work/detail" + "?no=" + no;
 	}
 }

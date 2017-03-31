@@ -16,6 +16,7 @@
 	
 	<resources mapping="/resources/**" location="/resources/" />
 	<resources mapping="/img/**" location="/img/" />
+	<resources mapping="/upload/**" location="/upload/" />
 	<resources mapping="/css/**" location="/css/" />
 	<resources mapping="/js/**" location="/js/" />
 	<resources mapping="/favicon/**" location="/favicon/" />

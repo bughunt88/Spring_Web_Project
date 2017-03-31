@@ -82,6 +82,14 @@
 									rows="6" name="body2" class="form-control textarea"
 									style="color: #38C5B9;">${bean.body2}</textarea>
 							</div>
+							<div class="ho3">
+								<h4>Body (Result 1)</h4>
+							</div>
+							<div class="ho">
+								<textarea style="resize: none; wrap: hard; color: #38C5B9;"
+									rows="6" name="body3" class="form-control textarea"
+									style="color: #38C5B9;">${bean.body3}</textarea>
+							</div>
 							
 							
 							<hr>

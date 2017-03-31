@@ -8,7 +8,7 @@
 <title>Insert title here</title>
 
 <link rel="stylesheet"
-	href="${pageContext.request.contextPath}/css/board/detail.css">
+	href="${pageContext.request.contextPath}/css/board/detail1.css">
 
 </head>
 
@@ -31,14 +31,13 @@
 				</div>
 				<hr>
 
-				<dir>
-					<!-- 파일 업로드 부분 -->
-					<c:if test="${not empty bean.upfile}">
-						<img src="<%=uploadedFolder%>${bean.upfile}" class="img-circle"
-							width="200" height="200">
-						<%=uploadedFolder%>${bean.upfile}
-								</c:if>
-				</dir>
+				<div>
+						<!-- 파일 업로드 부분 -->
+						<c:if test="${not empty bean.upfile}">
+							<img src="<%=uploadedFolder%>${bean.upfile}" >
+						</c:if>
+				</div>
+				
 				<p class="body">${bean.body}
 				<p>
 				<hr>

@@ -24,17 +24,37 @@
 			<div class="col-sm-offset-2 col-sm-8 col-sm-offset-2">
 
 				<div>
-					${bean.writer}
 					<h3 class="title">${bean.title}</h3>
 					<p class="time">
 						Created at <br> ${bean.regdate}
 					</p>
 				</div>
 				<hr>
+
+				<h4>
+					<i class="fa fa-lightbulb-o" aria-hidden="true"></i> 칼럼 분석
+				</h4>
 				<p class="body">${bean.body}
+					<br><br>
+				<h4>
+					<i class="fa fa-lightbulb-o" aria-hidden="true"></i> 데이터 분석
+				</h4>
 				<p class="body">${bean.body1}
+					<br><br>
+				<h4>
+					<i class="fa fa-lightbulb-o" aria-hidden="true"></i> 분석 결과
+				</h4>
 				<p class="body">${bean.body2}
+				<p class="body">${bean.body3}
+					<br><br>
 				<p>
+				<div>
+					<!-- 파일 업로드 부분 -->
+					<c:if test="${not empty bean.upfile}">
+						<img src="<%=uploadedFolder%>${bean.upfile}">
+					</c:if>
+				</div>
+
 				<hr>
 
 				<br> <br> <br> <br>
@@ -51,16 +71,15 @@
 							<div class="top">
 
 								<form class="delete" method="post"
-								
-									action="<%=contextPath%>/work/delete">
+									action="<%=contextPath%>/work/cdelete">
 									<c:set var="loginid" value="${loginfo.id}" />
 									<c:set var="writer" value="${bean1.writer}" />
-										<c:if test="${loginid eq writer}">
-											<input type="hidden" name="cnum" value="${bean1.cnum}">
-											<input type="hidden" name="no" value="${bean.no}">
-											<button type="submit" class="btn btn-defalut btn-xs">
-												x</button>
-										</c:if>
+									<c:if test="${loginid eq writer}">
+										<input type="hidden" name="cnum" value="${bean1.cnum}">
+										<input type="hidden" name="no" value="${bean.no}">
+										<button type="submit" class="btn btn-defalut btn-xs">
+											x</button>
+									</c:if>
 
 								</form>
 
@@ -77,6 +96,7 @@
 
 					<!-- !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!! -->
 
+					<c:set var="loginid" value="${loginfo.id}" />
 					<c:if test="${loginid != null}">
 						<form class="addComment checkValidation"
 							action="<%=contextPath%>/work/comment" method="post">
@@ -104,23 +124,20 @@
 					<a href="<%=contextPath%>/work/main"><button class="btn"
 							style="color: #38C5B9; background-color: white;">Back</button></a>
 					<c:set var="writer1" value="admin" />
-					<c:if test="${loginid != null}">
-						<c:if test="${loginid eq writer1}">
-							<a href="<%=contextPath%>/work/edit?no=${bean.no}" id="EditBtn">
-								<button class="btn"
-									style="color: #38C5B9; background-color: white;">Edit</button>
-							</a>
-							<!-- Delete button here -->
-							<form class="btn_delete" action="<%=contextPath%>/work/delete"
-								method="post">
-								<input type="hidden" value="${bean.no}" name="no">
-								<button type="submit" class="btn"
-									style="color: #38C5B9; background-color: white;">Delete</button>
-							</form>
-						</c:if>
+					<c:if test="${loginid eq writer1}">
+						<a href="<%=contextPath%>/work/edit?no=${bean.no}" id="EditBtn">
+							<button class="btn"
+								style="color: #38C5B9; background-color: white;">Edit</button>
+						</a>
+						<!-- Delete button here -->
+						<form class="btn_delete" action="<%=contextPath%>/work/delete"
+							method="post">
+							<input type="hidden" value="${bean.no}" name="no">
+							<button type="submit" class="btn"
+								style="color: #38C5B9; background-color: white;">Delete</button>
+						</form>
 					</c:if>
 				</div>
-
 			</div>
 		</div>
 	</div>

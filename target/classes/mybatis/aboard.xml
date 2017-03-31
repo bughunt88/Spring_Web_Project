@@ -7,10 +7,9 @@
 
 	<insert id="InsertData" parameterType="MyaBoard">
 		insert into aboards(no,
-		title, body , body1, body2, regdate, writer )
-		values( myboard1
-		.nextval, #{title}, #{body}, #{body1}, #{body2}, #{regdate},
-		#{writer})
+		title, body , body1, body2, regdate, writer, upfile, body3 )
+		values( myboard1.nextval, #{title}, #{body}, #{body1}, #{body2}, #{regdate},
+		#{writer}, #{upfile}, #{body3} )
 	</insert>
 
 	<select id="SelectDataList" resultType="MyaBoard" parameterType="hashmap">
@@ -32,7 +31,7 @@
 	<update id="UpdateData" parameterType="MyaBoard">
 		update aboards set
 		title=#{title}, body=#{body}, body1=#{body1},
-		body2=#{body2}
+		body2=#{body2}, body3=#{body3}
 		where
 		no=#{no}
 	</update>

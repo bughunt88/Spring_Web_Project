@@ -29,7 +29,7 @@ public class aCommentDao {
 		cnt = sqlSessionTemplate.insert(namespace + "InsertaComment", bean);
 		return cnt;
 	}	
-	
+		
 	public int DeleteData1(int pmKey) {
 		int cnt = -1;
 		cnt = sqlSessionTemplate.delete(namespace + "DeleteData1", pmKey);
