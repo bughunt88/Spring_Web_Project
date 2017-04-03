@@ -1,0 +1,271 @@
+2016 US Election 데이터셋 분석<br> (각 후보 별 전체 득표수 계산하기)
+
+
+* primary_results.csv<br>
+state : state where the primary or caucus was held<br>
+county : county where the results come from<br>
+party : Democrat or Republican<br>
+candidate : name of the candidate<br>
+votes : number of votes the candidate received in the corresponding state and county (may be missing)<br>
+(기타 컬럼 생략)<br><br>
+<i class="fa fa-file" aria-hidden="true"></i><a href="https://drive.google.com/file/d/0B9fcvsgEhJNscjN0WGpRckh4SGM/view" target="_blank">데이터 링크</a>
+
+
+목표 : 각 후보자 별 전체 득표수를 계산하고 그래프 그리기 <br>
+사용 Python modual : matplotlib, pandas, numpy <br>
+분석을 위한 필요 칼럼 : candidate, votes<br>
+사용 함수 : groupby(), sum(), sort_values(),  plot()<br>
+
+
+<pre class="python"><ol><li class="li1"><div class="de1"><span class="co1">#각 후보 별 전체 득표수 계산하기(정렬)</span></div></li><li class="li1"><div class="de1">candidate_to_votes <span class="sy0">=</span> primary.<span class="me1">groupby</span><span class="br0">(</span><span class="st0">"candidate"</span><span class="br0">)</span><span class="br0">[</span><span class="st0">"votes"</span><span class="br0">]</span>.<span class="kw2">sum</span><span class="br0">(</span><span class="br0">)</span>.<span class="me1">sort_values</span><span class="br0">(</span><span class="br0">)</span></div></li><li class="li1"><div class="de1">?</div></li><li class="li1"><div class="de1"><span class="co1">#득표수 계산한 값 테이블 그리기</span></div></li><li class="li1"><div class="de1">candidate_to_votes.<span class="me1">plot</span><span class="br0">(</span>kind<span class="sy0">=</span><span class="st0">"barh"</span><span class="sy0">,</span> fontsize<span class="sy0">=</span><span class="nu0">8</span><span class="br0">)</span></div></li></ol></pre>
+
+
+
+
+----------------------------------------------------------------------------------------------------------------------------------------------------
+
+2016 US Election 데이터셋 분석<br> (각 주별, 각 정당의 득표 비율 계산하기)
+
+
+
+
+* primary_results.csv<br>
+state : state where the primary or caucus was held<br>
+county : county where the results come from<br>
+party : Democrat or Republican<br>
+candidate : name of the candidate<br>
+votes : number of votes the candidate received in the corresponding state and county (may be missing)<br>
+(기타 컬럼 생략)<br><br>
+<i class="fa fa-file" aria-hidden="true"></i><a href="https://drive.google.com/file/d/0B9fcvsgEhJNscjN0WGpRckh4SGM/view" target="_blank">데이터 링크</a>
+
+
+
+
+목표 : 각 주별, 각 정당의 득표 비율 계산하기 <br>
+사용 Python modual : matplotlib, pandas, numpy <br>
+분석을 위한 필요 칼럼 : candidate, votes, party <br>
+사용 함수 : groupby(), sum(), sort_values(),  plot(), unstack()<br>
+
+
+<pre class="python"><ol><li class="li1"><div class="de1"><span class="co1"># state, party의 득표 수 계산하기</span></div></li><li class="li1"><div class="de1">state_party_to_votes_s <span class="sy0">=</span> primary.<span class="me1">groupby</span><span class="br0">(</span><span class="br0">[</span><span class="st0">"state"</span><span class="sy0">,</span> <span class="st0">"party"</span><span class="br0">]</span><span class="br0">)</span><span class="br0">[</span><span class="st0">"votes"</span><span class="br0">]</span>.<span class="kw2">sum</span><span class="br0">(</span><span class="br0">)</span></div></li><li class="li1"><div class="de1"><span class="co1"># state 총 투표 수 구하기</span></div></li><li class="li1"><div class="de1">state_to_votes_s <span class="sy0">=</span> primary.<span class="me1">groupby</span><span class="br0">(</span><span class="st0">"state"</span><span class="br0">)</span><span class="br0">[</span><span class="st0">"votes"</span><span class="br0">]</span>.<span class="kw2">sum</span><span class="br0">(</span><span class="br0">)</span></div></li><li class="li1"><div class="de1"><span class="co1"># state , party의 득표 비율 계산하기 </span></div></li><li class="li1"><div class="de1">state_party_to_vote_pcts_s <span class="sy0">=</span> state_party_to_votes_s / state_to_votes_s</div></li><li class="li1"><div class="de1"><span class="co1"># 그래프 그리기</span></div></li><li class="li1"><div class="de1">state_party_to_vote_pcts_s.<span class="me1">unstack</span><span class="br0">(</span><span class="br0">)</span>.<span class="me1">plot</span><span class="br0">(</span>kind<span class="sy0">=</span><span class="st0">"barh"</span><span class="sy0">,</span> stacked<span class="sy0">=</span><span class="kw2">True</span><span class="sy0">,</span> fontsize<span class="sy0">=</span><span class="nu0">8</span><span class="br0">)</span></div></li></ol></pre>
+
+
+<div class="output_text output_subarea output_execute_result">
+<pre>state     party     
+Alabama   Democrat      0.321491
+          Republican    0.678509
+Arizona   Democrat      0.478419
+          Republican    0.521581
+Arkansas  Democrat      0.343990
+Name: votes, dtype: float64</pre>
+</div>
+
+
+----------------------------------------------------------------------------------------------------------------------------------------------------
+
+
+
+2016 US Election 데이터셋 분석<br> (각 후보가 당선된 county의 평균 백인 유권자 비율 조사하기)
+
+
+* primary_results.csv<br>
+state : state where the primary or caucus was held<br>
+county : county where the results come from<br>
+party : Democrat or Republican<br>
+fips : FIPS county code<br>
+candidate : name of the candidate<br>
+votes : number of votes the candidate received in the corresponding state and county (may be missing)<br>
+<br>* county_facts.csv<br>
+RHI825214 : White alone, not Hispanic or Latino, percent, 2014<br>
+(기타 컬럼 생략)<br><br>
+<i class="fa fa-file" aria-hidden="true"></i><a href="https://drive.google.com/file/d/0B9fcvsgEhJNscjN0WGpRckh4SGM/view" target="_blank">데이터 링크</a>
+
+
+
+목표 : 각 후보가 당선된 county의 평균 백인 유권자 비율 조사하기<br>
+사용 Python modual : matplotlib, pandas, numpy, RHI825214<br>
+분석을 위한 필요 칼럼 : candidate, votes, party, fips, RHI825214<br>
+사용 함수 : groupby(), sum(), mean(), sort_values(),  plot(), unstack(), rename(), iloc(), merge()<br>
+
+
+<pre class="python"><ol><li class="li1"><div class="de1"><span class="co1"># 득표 정렬 후에 첫번째 항(가장 많이 득표한 사람) 뽑는 사용자 식 정의</span></div></li><li class="li1"><div class="de1">func <span class="sy0">=</span> <span class="kw1">lambda</span> agg_df: agg_df.<span class="me1">sort_values</span><span class="br0">(</span><span class="st0">"votes"</span><span class="sy0">,</span> ascending<span class="sy0">=</span><span class="kw2">False</span><span class="br0">)</span>.<span class="me1">iloc</span><span class="br0">[</span><span class="nu0">0</span><span class="br0">]</span></div></li><li class="li1"><div class="de1"><span class="co1"># fips 컬럼 기준으로 사용자 정의식 groupby 하기</span></div></li><li class="li1"><div class="de1">winners <span class="sy0">=</span> primary.<span class="me1">groupby</span><span class="br0">(</span><span class="st0">"fips"</span><span class="br0">)</span>.<span class="me1">agg</span><span class="br0">(</span>func<span class="br0">)</span></div></li><li class="li1"><div class="de1"><span class="co1"># winners 컬럼에 counties(fips,RHI825214)행 병합</span></div></li><li class="li1"><div class="de1">winners_county_races <span class="sy0">=</span> pd.<span class="me1">merge</span><span class="br0">(</span>winners<span class="sy0">,</span> counties<span class="br0">[</span><span class="br0">[</span><span class="st0">"fips"</span><span class="sy0">,</span> <span class="st0">"RHI825214"</span><span class="br0">]</span><span class="br0">]</span><span class="sy0">,</span>left_index<span class="sy0">=</span><span class="kw2">True</span><span class="sy0">,</span> right_on<span class="sy0">=</span><span class="st0">"fips"</span><span class="sy0">,</span> how<span class="sy0">=</span><span class="st0">"left"</span><span class="br0">)</span></div></li><li class="li1"><div class="de1"><span class="co1"># RHI825214의 칼럼 이름을 변경한다</span></div></li><li class="li1"><div class="de1">winners_county_races <span class="sy0">=</span> winners_county_races.<span class="me1">rename</span><span class="br0">(</span>columns<span class="sy0">=</span><span class="br0">{</span><span class="st0">"RHI825214"</span>:<span class="st0">"white_pcts"</span><span class="br0">}</span><span class="br0">)</span></div></li><li class="li1"><div class="de1"><span class="co1"># party, candidate 컬럼 기준으로 white_pcts의 평균을 groupby 한다</span></div></li><li class="li1"><div class="de1">winners_county_white_pcts <span class="sy0">=</span> winners_county_races.<span class="me1">groupby</span><span class="br0">(</span><span class="br0">[</span><span class="st0">"party"</span><span class="sy0">,</span> <span class="st0">"candidate"</span><span class="br0">]</span><span class="br0">)</span><span class="br0">[</span><span class="st0">"white_pcts"</span><span class="br0">]</span>.<span class="me1">mean</span><span class="br0">(</span><span class="br0">)</span></div></li><li class="li1"><div class="de1"><span class="co1"># 그래프 그린다</span></div></li><li class="li1"><div class="de1">ax <span class="sy0">=</span> winners_county_white_pcts.<span class="me1">plot</span><span class="br0">(</span>kind<span class="sy0">=</span><span class="st0">"barh"</span><span class="sy0">,</span> fontsize<span class="sy0">=</span><span class="nu0">8</span><span class="br0">)</span></div></li><li class="li1"><div class="de1"><span class="co1"># 그래프 꾸민다</span></div></li><li class="li1"><div class="de1">ax.<span class="me1">set_xlim</span><span class="br0">(</span><span class="br0">[</span><span class="nu0">50</span><span class="sy0">,</span> <span class="nu0">100</span><span class="br0">]</span><span class="br0">)</span> plt.<span class="me1">tight_layout</span><span class="br0">(</span><span class="br0">)</span></div></li></ol></pre>
+<div class="output_text output_subarea output_execute_result">
+<pre>party       candidate      
+Democrat    Bernie Sanders     81.944030
+            Hillary Clinton    56.856920
+Republican  Ben Carson         81.100000
+            Donald Trump       83.235638
+            John Kasich        89.226415
+Name: white_pcts, dtype: float64</pre>
+</div>
+
+
+----------------------------------------------------------------------------------------------------------------------------------------------------
+
+Game of Thrones 데이터셋 분석<br> (작품 번호에 따른 인물들의 죽음 횟수 시각화하기 - 라인 플롯)
+
+
+
+
+* character-deaths.csv<br>
+Name: character name<br>
+Death Year: year character died<br>
+Book of Death: book character died in<br>
+Death Chapter: chapter character died in<br>
+Book Intro Chapter: chapter character was introduced in<br>
+Gender: 1 is male, 0 is female<br>
+Nobility: 1 is nobel, 0 is a commoner<br><br>
+<i class="fa fa-file" aria-hidden="true"></i><a href="https://drive.google.com/open?id=0B9fcvsgEhJNsbTlRLTVNZGdRQTQ" target="_blank">데이터 링크</a>
+
+
+목표 : 작품 번호에 따른 인물들의 죽음 횟수 시각화하기 - 라인 플롯 그리기<br>
+사용 Python modual : matplotlib, pandas, numpy<br>
+분석을 위한 필요 칼럼 : Book of Death<br>
+사용 함수 : value_counts(), sort_index()<br>
+
+
+<pre class="python"><ol><li class="li1"><div class="de1"><span class="co1"># Book of Death 컬럼의 값의 총 합을 구하고 index로 정렬한다</span></div></li><li class="li1"><div class="de1">book_nums_to_death_count <span class="sy0">=</span> deaths<span class="br0">[</span><span class="st0">"Book of Death"</span><span class="br0">]</span>.<span class="me1">value_counts</span><span class="br0">(</span><span class="br0">)</span>.<span class="me1">sort_index</span><span class="br0">(</span><span class="br0">)</span></div></li><li class="li1"><div class="de1"><span class="co1"># 그래프 그리기</span></div></li><li class="li1"><div class="de1">ax1 <span class="sy0">=</span> book_nums_to_death_count.<span class="me1">plot</span><span class="br0">(</span>color<span class="sy0">=</span><span class="st0">"k"</span><span class="sy0">,</span> marker<span class="sy0">=</span><span class="st0">"o"</span><span class="sy0">,</span> linestyle<span class="sy0">=</span><span class="st0">"--"</span><span class="br0">)</span></div></li><li class="li1"><div class="de1"><span class="co1"># 그래프 꾸미기</span></div></li><li class="li1"><div class="de1">ax1.<span class="me1">set_xticks</span><span class="br0">(</span>np.<span class="me1">arange</span><span class="br0">(</span><span class="nu0">1</span><span class="sy0">,</span> <span class="nu0">6</span><span class="br0">)</span><span class="br0">)</span> ax1.<span class="me1">set_xlim</span><span class="br0">(</span><span class="br0">[</span><span class="nu0">0</span><span class="sy0">,</span> <span class="nu0">6</span><span class="br0">]</span><span class="br0">)</span> ax1.<span class="me1">set_ylim</span><span class="br0">(</span><span class="br0">[</span><span class="nu0">0</span><span class="sy0">,</span> <span class="nu0">120</span><span class="br0">]</span><span class="br0">)</span></div></li></ol></pre>
+
+
+----------------------------------------------------------------------------------------------------------------------------------------------------
+
+
+Game of Thrones 데이터셋 분석<br> (대규모 전투에서 공격군 수비군 간의 병력 차이 시각화하기 - 박스 플롯)
+
+* battles.csv<br>
+name : String variable. The name of the battle.<br>
+attacker_size : Numeric variable. The size of the attacker's force. No distinction is made between the types of soldiers such as cavalry and footmen.<br>
+defender_size : Numeric variable. The size of the defenders's force. No distinction is made between the types of soldiers such as cavalry and footmen.<br>
+attacker_1~4 : String variable. Major house attacking.<br>
+defender_1~4 : String variable. Major house defending.<br><br>
+<i class="fa fa-file" aria-hidden="true"></i><a href="https://www.kaggle.com/kaggle/us-baby-names" target="_blank">데이터 링크</a><br>
+
+
+목표 : 대규모 전투에서 공격군 수비군 간의 병력 차이 시각화하기 - 박스 플롯 그리기<br>
+사용 Python modual : matplotlib, pandas, numpy<br>
+분석을 위한 필요 칼럼 : name, attacker_size, defender_size<br>
+사용 함수 : sort_index()<br>
+
+
+<pre class="python"><ol><li class="li1"><div class="de1"><span class="co1"># name 칼럼은 index로 사용한다</span></div></li><li class="li1"><div class="de1">battles <span class="sy0">=</span> battles.<span class="me1">set_index</span><span class="br0">(</span><span class="br0">[</span><span class="st0">"name"</span><span class="br0">]</span><span class="br0">)</span></div></li><li class="li1"><div class="de1"><span class="co1"># 총 전투 인력이 10000명 이상인 대형 전투를 찾는다</span></div></li><li class="li1"><div class="de1">large_battles_mask <span class="sy0">=</span> battles<span class="br0">[</span><span class="st0">"attacker_size"</span><span class="br0">]</span> + battles<span class="br0">[</span><span class="st0">"defender_size"</span><span class="br0">]</span> <span class="sy0">&gt;</span> <span class="nu0">10000</span></div></li><li class="li1"><div class="de1"><span class="co1"># 대형 전투에서 attacker_size, defender_size로 테이블 만든다</span></div></li><li class="li1"><div class="de1">large_battles <span class="sy0">=</span> battles.<span class="me1">loc</span><span class="br0">[</span>large_battles_mask<span class="sy0">,</span> <span class="br0">[</span><span class="st0">"attacker_size"</span><span class="sy0">,</span> <span class="st0">"defender_size"</span><span class="br0">]</span><span class="br0">]</span></div></li><li class="li1"><div class="de1"><span class="co1"># 그래프 그린다</span></div></li><li class="li1"><div class="de1">ax2 <span class="sy0">=</span> large_battles.<span class="me1">plot</span><span class="br0">(</span>kind<span class="sy0">=</span><span class="st0">"barh"</span><span class="sy0">,</span> stacked<span class="sy0">=</span><span class="kw2">True</span><span class="sy0">,</span> fontsize<span class="sy0">=</span><span class="nu0">8</span><span class="br0">)</span></div></li></ol></pre>
+
+
+<div class="output_html rendered_html output_subarea output_execute_result">
+<div>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>attacker_size</th>
+      <th>defender_size</th>
+    </tr>
+    <tr>
+      <th>name</th>
+      <th></th>
+      <th></th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>Battle of the Golden Tooth</th>
+      <td>15000.0</td>
+      <td>4000.0</td>
+    </tr>
+    <tr>
+      <th>Battle of Riverrun</th>
+      <td>15000.0</td>
+      <td>10000.0</td>
+    </tr>
+    <tr>
+      <th>Battle of the Green Fork</th>
+      <td>18000.0</td>
+      <td>20000.0</td>
+    </tr>
+    <tr>
+      <th>Battle of the Camps</th>
+      <td>6000.0</td>
+      <td>12625.0</td>
+    </tr>
+    <tr>
+      <th>Battle of Oxcross</th>
+      <td>6000.0</td>
+      <td>10000.0</td>
+    </tr>
+  </tbody>
+</table>
+</div>
+</div>
+
+
+
+----------------------------------------------------------------------------------------------------------------------------------------------------
+
+
+
+US Baby Names 1880-2014 데이터셋 분석<br> (각 (연도, 성별) 그룹의 총 출생횟수 산출하기)
+
+
+
+* NationalNames.csv<br>
+Id : 행 구분자<br>
+Name : 유아 이름<br>
+Year : 출생연도<br>
+Gender : 성별<br>
+Count : 해당 (이름, 연도, 성별)의 출생횟수<br><br>
+<i class="fa fa-file" aria-hidden="true"></i><a href="https://www.kaggle.com/kaggle/us-baby-names" target="_blank">데이터 링크</a><br>
+ 
+
+
+목표 : 각 (연도, 성별) 그룹의 총 출생횟수 산출하기<br>
+사용 Python modual : matplotlib, pandas, numpy<br>
+분석을 위한 필요 칼럼 : births, year, sex<br>
+사용 함수 : pivot_table()<br>
+
+
+<pre class="python"><ol><li class="li1"><div class="de1"><span class="co1"># NationalNames의 데이터를 id,name,year,sex,births 컬럼으로 정리해서 가져온다</span></div></li><li class="li1"><div class="de1">names <span class="sy0">=</span> pd.<span class="me1">read_csv</span><span class="br0">(</span><span class="st0">"data/us-baby-names/NationalNames.csv"</span><span class="sy0">,</span> sep<span class="sy0">=</span><span class="st0">","</span><span class="sy0">,</span></div></li><li class="li1"><div class="de1">                     header<span class="sy0">=</span><span class="nu0">0</span><span class="sy0">,</span> names<span class="sy0">=</span><span class="br0">[</span><span class="st0">"id"</span><span class="sy0">,</span> <span class="st0">"name"</span><span class="sy0">,</span> <span class="st0">"year"</span><span class="sy0">,</span> <span class="st0">"sex"</span><span class="sy0">,</span> <span class="st0">"births"</span><span class="br0">]</span><span class="br0">)</span></div></li><li class="li1"><div class="de1"><span class="co1"># index는 yea, columns은 sex의 births 값의 합을 구한 테이블을 만든다</span></div></li><li class="li1"><div class="de1">total_births <span class="sy0">=</span> names.<span class="me1">pivot_table</span><span class="br0">(</span><span class="st0">"births"</span><span class="sy0">,</span> index<span class="sy0">=</span><span class="st0">"year"</span><span class="sy0">,</span> columns<span class="sy0">=</span><span class="st0">"sex"</span><span class="sy0">,</span> aggfunc<span class="sy0">=</span><span class="kw2">sum</span><span class="br0">)</span></div></li><li class="li1"><div class="de1"><span class="co1"># 그래프를 그린다</span></div></li><li class="li1"><div class="de1">ax <span class="sy0">=</span> total_births.<span class="me1">plot</span><span class="br0">(</span><span class="br0">)</span></div></li><li class="li1"><div class="de1"><span class="co1"># 그래프의 제목을 설정한다</span></div></li><li class="li1"><div class="de1">ax.<span class="me1">set_title</span><span class="br0">(</span><span class="st0">"Total births by sex and year"</span><span class="br0">)</span></div></li></ol></pre>
+
+
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th>sex</th>
+      <th>F</th>
+      <th>M</th>
+    </tr>
+    <tr>
+      <th>year</th>
+      <th></th>
+      <th></th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>2010</th>
+      <td>1772738</td>
+      <td>1913851</td>
+    </tr>
+    <tr>
+      <th>2011</th>
+      <td>1753500</td>
+      <td>1893230</td>
+    </tr>
+    <tr>
+      <th>2012</th>
+      <td>1753922</td>
+      <td>1889414</td>
+    </tr>
+    <tr>
+      <th>2013</th>
+      <td>1745339</td>
+      <td>1881463</td>
+    </tr>
+    <tr>
+      <th>2014</th>
+      <td>1768775</td>
+      <td>1901376</td>
+    </tr>
+  </tbody>
+</table>
+
+
+

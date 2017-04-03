@@ -1,0 +1,90 @@
+-- 사용자 생성
+create user project identified by oracle account unlock ;
+
+-- 권한 부여하기
+grant connect, resource to project ;
+
+-- 회원 테이블
+
+create table members(
+	id varchar2(500) primary key,
+	email varchar2(500),
+	password varchar2(500)
+) ;
+
+
+-- 게시물 테이블
+
+create sequence myboard start with 1 increment by 1 nocache ;
+
+create table boards(
+	no number primary key,
+	title varchar2(2000) not null,
+	category varchar2(4000),
+	writer varchar2(4000),
+	body varchar2(4000),
+	upfile varchar2(4000),
+	regdate varchar2(4000)
+);
+
+alter table boards
+add constraint boards_mid_fk
+foreign key(writer) references members(id) on delete set null  ;
+
+
+-- 댓글 테이블
+
+create sequence seqcnum start with 1 increment by 1 nocache ;
+
+create table comments(
+	cnum number primary key,
+
+	no number references boards(no) on delete cascade,
+
+	writer varchar2(4000),
+	body varchar2(4000),
+	regdate varchar2(4000)
+);
+
+alter table comments
+add constraint comments_writer_fk
+foreign key(writer) references members(id) on delete set null  ;
+
+
+
+-- 게시물 테이블 2
+
+create sequence myboard1 start with 1 increment by 1 nocache ;
+
+create table aboards(
+	no number primary key,
+	title varchar2(500) not null,
+	body varchar2(4000),
+	body1 varchar2(4000),
+	body2 varchar2(4000),
+	body3 varchar2(4000),
+	regdate varchar2(50),
+	upfile varchar2(4000),
+	writer varchar2(500)
+	
+);
+
+
+
+-- 댓글 테이블
+
+create sequence seqcnum1 start with 1 increment by 1 nocache ;
+
+create table acomments(
+	cnum number primary key,
+
+	no number references aboards(no) on delete cascade,
+
+	writer varchar2(500),
+	body varchar2(4000),
+	regdate varchar2(500)
+);
+
+alter table acomments
+add constraint comments_writer_fk1
+foreign key(writer) references members(id) on delete set null  ;

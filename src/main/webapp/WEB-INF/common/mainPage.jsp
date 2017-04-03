@@ -29,16 +29,19 @@
 		</div>
 	</div>
 
-	
+
 
 	<h1>
 		<a>Programming 씹어먹기</a>
 	</h1>
-<br>
-	<h3>A Full-Screen Menu, showcasing your brand and website
-		navigation.</h2>
-
-	<p class="support"> <i class="glyphicon glyphicon-envelope"> bughunt88@gmail.com</i></p>
+	<br>
+	<h3>Programmer를 꿈꾸는 프린이(?)의 홈페이지</h3>
+	<h3>Python으로 데이터 분석해드립니다.</h3>
+	
+	<p class="support">
+		<i class="glyphicon glyphicon-envelope"> bughunt88@gmail.com</i><br>
+		<i class="fa fa-bullhorn" aria-hidden="true">&nbsp;&nbsp;&nbsp; 이 홈페이지는 Chrome에서만 작동합니다.</i>
+	</p>
 
 	</main>
 

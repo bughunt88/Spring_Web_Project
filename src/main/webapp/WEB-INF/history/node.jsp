@@ -153,7 +153,7 @@
 							<figure>
 								<figcaption class="momo">
 									<h3>Main Page</h3>
-									<p>Kale chips lomo biodiesel stumptown Godard Tumblr, mustache sriracha tattooed cray aute slow-carb placeat delectus. Letterpress asymmetrical fanny pack art party est pour-over skateboard anim quis, ullamco craft beer.</p>
+									<p>Node.js, Express를 사용하여 홈페이지 메인 화면 구성함.</p>
 								</figcaption>
 								<img c src="${pageContext.request.contextPath}/img/history_node4.png" alt="img02"/>
 							</figure>
@@ -162,7 +162,7 @@
 							<figure>
 								<figcaption class="momo">
 									<h3>D3 Page</h3>
-									<p>Kale chips lomo biodiesel stumptown Godard Tumblr, mustache sriracha tattooed cray aute slow-carb placeat delectus. Letterpress asymmetrical fanny pack art party est pour-over skateboard anim quis, ullamco craft beer.</p>
+									<p>D3를 사용하여 만든 그래프 페이지 구성함.</p>
 								</figcaption>
 								<img src="${pageContext.request.contextPath}/img/history_node5.png" alt="img02"/>
 							</figure>
@@ -171,7 +171,7 @@
 							<figure>
 								<figcaption class="momo">
 									<h3>Board Page</h3>
-									<p>Kale chips lomo biodiesel stumptown Godard Tumblr, mustache sriracha tattooed cray aute slow-carb placeat delectus. Letterpress asymmetrical fanny pack art party est pour-over skateboard anim quis, ullamco craft beer.</p>
+									<p>Modal 방식으로 나타나는 게시판 구성함.</p>
 								</figcaption>
 								<img src="${pageContext.request.contextPath}/img/history_node6.png" alt="img02"/>
 							</figure>
@@ -180,7 +180,7 @@
 							<figure>
 								<figcaption class="momo">
 									<h3>Admin Page</h3>
-									<p>Kale chips lomo biodiesel stumptown Godard Tumblr, mustache sriracha tattooed cray aute slow-carb placeat delectus. Letterpress asymmetrical fanny pack art party est pour-over skateboard anim quis, ullamco craft beer.</p>
+									<p>관리자 게시판으로 글을 쓰면 메인페이지에 나타나게 구성함.</p>
 								</figcaption>
 								<img src="${pageContext.request.contextPath}/img/history_node7.png" alt="img02"/>
 							</figure>
